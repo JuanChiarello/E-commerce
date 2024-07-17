@@ -8,7 +8,6 @@ const products = [
         stock: 25,
         description: 'Descripcion de Motorola g23',
     },
-
     {
         id: '2',
         name: 'Auriculares HyperX',
@@ -18,7 +17,6 @@ const products = [
         stock: 60,
         description: 'Descripcion de Auriculares HyperX',
     },
-
     {
         id: '3',
         name: 'Nespresso Essenza',
@@ -28,12 +26,28 @@ const products = [
         stock: 40,
         description: 'Descripcion de Nespresso Essenza',
     },
-]
+];
 
 export const getProducts = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(products)
-        }, 500)
-    })
-}
+            resolve(products);
+        }, 500);
+    });
+};
+
+export const getProductById = (productId) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(products.find(prod => prod.id === productId));
+        }, 500);
+    });
+};
+
+export const getProductsByCategory = (category) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(products.filter(prod => prod.category === category));
+        }, 500);
+    });
+};
